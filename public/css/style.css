@@ -1,0 +1,86 @@
+body{
+	/*display: flex;
+  justify-content: center;
+  align-items: center;*/
+}
+
+.navpr{
+	
+	background-color: #cb1e0e;
+	
+	padding-bottom: 120px;
+}
+.product-avatar{
+	max-width: 100%;
+}
+img.imglog{
+	position: static;
+
+}
+.navli{
+	background-color: #c61807;
+}
+
+.cfta{
+	padding-top: 28px;
+	padding-bottom: 43px;
+	font: oblique bold 40px cursive;
+}
+.cfta:hover{
+	background-color: none;
+	color: none;
+	/*padding-top: 33px;
+	transform: translate(0px, 10px);*/
+}
+.cfca{
+	padding-top: 28px;
+	padding-bottom: 43px;
+	font: oblique bold 40px cursive;
+}
+.cfca:hover{
+	border-bottom-style: solid;
+	border-bottom-color: blue;
+
+}
+.cfia{
+	padding-top: 28px;
+	padding-bottom: 43px;
+	font: oblique bold 40px cursive;
+}
+.cfcard{
+
+	width: 300px;
+	height: 300px;
+	top: 50px;
+	
+}
+.imgcard{
+	width: 450px;
+	height: 200px;
+}
+#cfft{
+	top: ;
+	background-color: #081d76;
+}
+/*///////      Estilos de Modals         //////////*/
+#modalogin{
+	width: 50%;
+}
+/*//////////// Estilo de boton de compras /////////////////*/
+.boton {
+    width:50px;
+    position:relative;
+    line-height:50px;
+    border-radius:25px;
+}
+
+.n {
+    position:absolute;
+    right:0px;
+    top:0px;
+    background-color:yellow;
+    line-height:20px;
+    width:20px;
+    height:20px;
+    border-radius:10px;
+}
