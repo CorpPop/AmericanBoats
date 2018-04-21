@@ -42,7 +42,7 @@
                 <li class="cftli offset-l2"><a href="{{ url('products') }}" class="cfta">Equipo</a></li>
                 <li class="cftli"><a  href="{{ url('catalogo') }}" class="cfca">Catalogo</a></li>
                 @if(Auth::check()  && Auth::user()->type=="Admin")
-                <li class="cftli" style="background-color: black"> <a  href="{{ url('warehouse') }}" class="cfca">Almacen</a>
+                <li class="cftli" style="background-color: black"> <a  href="{{ url('warehouse/create') }}" class="cfca">Almacen</a>
                   </li>
                 @endif
               </ul>

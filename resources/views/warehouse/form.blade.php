@@ -14,12 +14,21 @@
 	</div>
 	<div class="input-field col l6 s6">
 		<select multiple>
-		{{ Form::option('size', array('L' => 'Large', 'S' => 'Small'), 'S')}}
+		{{ Form::select('size', array('L' => 'Large', 'S' => 'Small'), 'S')}}
 		</select>
 		<label>Materialize Multiple Select</label>
 	</div>
+	<div class="input-field col l6 m3 s3">
+		<i class="material-icons prefix">format_color_text</i>
+		{{ Form::text('title',$product->title,['class' => 'form-control','placeholder'=>'Color'])}}
+	</div>
+	<div class="input-field col l6 m3 s3">
+		<i class="material-icons prefix">format_color_text</i>
+		{{ Form::text('title',$product->title,['class' => 'form-control','placeholder'=>'Tamaño'])}}
+	</div>
 	<div class="input-field rigth">
-		<a href="{{url('/warehouse')}}">Regresar</a>
-		<input type="submit" name="" value="Enviar" class="">
+		<!-- <a href="{{url('/warehouse')}}">Regresar</a> -->
+		<a href="{{url('/warehouse')}}" class="waves-effect waves-light btn" >Regresar</a>
+		<input type="submit" name="" style="background-color: gray;" value="Enviar" class="waves-effect waves-light btn">
 	</div>
 {!! Form::close() !!}
