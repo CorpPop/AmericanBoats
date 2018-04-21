@@ -16,8 +16,10 @@ class PaymentsController extends Controller
     	$response = $paypal->execute($request->paymentId,$request->PayerID);
     	// dd($paypal->execute($request->paymentId,$request->PayerID));
     	if ($response->state == "approved") {
-    		$order = Order::($response,$shopping_cart);
+    		$order = Order::createFromPayPalResponse($response,$shopping_cart);
     	}
-    	dd($order);
+    	$shopping_cart->approved();
+    	// dd($order);
+    	return view("shopping_carts.completed",["shopping_cart" => $shopping_cart, "order" => $order]);
     }
 }

@@ -19,6 +19,8 @@ Route::get('/carrito','ShoppingCartsController@index');
 Auth::routes();
 
 Route::resource('products','ProductsController');
+Route::resource('catalogo','CatalogosController');
+Route::resource('warehouse','WarehousesController');
 Route::resource('in_shopping_carts','InShoppingCartsController',['only' => ['store','destroy']]);
 // Route::resource('create','ProductsController@create');
 /*

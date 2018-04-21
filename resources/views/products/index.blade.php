@@ -23,7 +23,7 @@
 				<td>{{ $product->description }}</td>
 				<td>{{ $product->pricing }}</td>
 				<td>
-					<a class="btn-large" href="{{url("/products/$product->id")}}">Ver</a>
+					<a class="btn-large" href="{{url('/products/$product->id')}}">Ver</a>
 					<a class="btn-large" href="{{url('/products/'.$product->id.'/edit')}}">Editar</a>
 					<a class="btn-large red" href="{{url('/products/'.$product->id.'')}}">Buy</a>
 					@include('products.delete',['product' => $product])

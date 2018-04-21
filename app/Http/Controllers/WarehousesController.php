@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Product;
 
-class ProductsController extends Controller
+class WarehousesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view("products.index",["products" => $products]);
+        return view("warehouse.index",["products" => $products]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProductsController extends Controller
     {
         $product = new Product;
 
-        return view("products.create",["product" => $product]);
+        return view("warehouse.create",["product" => $product]);
     }
 
     /**

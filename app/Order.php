@@ -8,6 +8,9 @@ class Order extends Model
 {
 	protected $fillable = ['recipient_name','linea1','linea2','city','country_code','state','postal_code',
 							'email','shopping_cart_id','status','total','guide_number'];
+	public function address(){
+		return "$this->linea1 $this->linea2";
+	}
     public static function createFromPayPalResponse($response,$shopping_cart){
     	$payer = $response->payer;
     	$orderData = (array) $payer->payer_info->shippin_address;

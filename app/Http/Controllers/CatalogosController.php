@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Product;
 
-class ProductsController extends Controller
+class CatalogosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view("products.index",["products" => $products]);
+        return view("catalogo.index",["products" => $products]);
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductsController extends Controller
             if($hasFile){
                 $request->cover->storeAs('images',"$product->id.$extension");
             }
-            return redirect("/catalogo");
+            return redirect("/products");
             // return view("products.create");
         }else{
             return view("products.create",["product" => $product]);
