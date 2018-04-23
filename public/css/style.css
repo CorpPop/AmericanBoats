@@ -6,54 +6,64 @@ body{
 
 .navpr{
 	
-	background-color: #cb1e0e;
-	color: red;
+	background-color: #081d76;
 	
-	/*padding-bottom: 20px;*/
+	
 }
-.navpr2{
-	
-	background-color: white;
-	color: black;
-	/*padding-bottom: 120px;*/
+.navses{
+	height:35px;
+	background-color:#2f2f2f; 
+} 
+.sti{
+	color: white;
+	font-size:10px;
+	font-weight: bold;
+	top: 5px;
+    right: 80px;
 }
 .product-avatar{
 	max-width: 100%;
-	height: 200px;
 }
-.imglog{
-	position: relative;
+img.imglog{
+	position: absolute;
+    width: 140px;
+    top:-20px;
+    left: 97px;
+    z-index: 2;
+}
+.personsize{
+ position: absolute;
+ color: white;
+ right: 60px;
 }
 .navli{
 	background-color: #c61807;
 }
-.cftli{
-	position: static;
-}
+
 .cfta{
-	background-color: black;
-	
+	padding-top: 28px;
+	padding-bottom: 43px;
+	font: oblique bold 40px cursive;
 }
-/*.cfta:hover{
+.cfta:hover{
 	background-color: none;
-	color: none;*/
+	color: none;
 	/*padding-top: 33px;
-	transform: translate(0px, 10px);
-/*}*/
-.cfca{
-	
-	
+	transform: translate(0px, 10px);*/
 }
-/*.cfca:hover{
+.cfca{
+	padding-top: 28px;
+	padding-bottom: 43px;
+	font: oblique bold 40px cursive;
+}
+.cfca:hover{
 	border-bottom-style: solid;
 	border-bottom-color: blue;
 
 }
 .cfia{
-	padding-top: 28px;
-	padding-bottom: 43px;
-	font: oblique bold 40px cursive;
-}*/
+	left: 150px;
+}
 .cfcard{
 
 	width: 300px;
@@ -67,7 +77,7 @@ body{
 }
 #cfft{
 	top: ;
-	background-color: #081d76;
+	background-color: #cc1f0e;
 }
 /*///////      Estilos de Modals         //////////*/
 #modalogin{
@@ -80,24 +90,80 @@ body{
     line-height:50px;
     border-radius:25px;
 }
-.ulnav{
-	/*background-color: black;*/
-	color: black;
-}
-.centrado{
-	padding-left: 40%;
+.mono{
+	position: relative;
+	width:1px;
+	top:0px;
+	right: 20px;
 }
 .n {
     position:absolute;
-    right:0px;
-    top:20px;
+    right:28px;
+    
     background-color:yellow;
     line-height:20px;
-    width:20px;
+    width:18px;
     height:20px;
     border-radius:10px;
 }
-.catalogo{
-	padding-left: 30px;
-	padding-top:  40px;
+.carousel{
+    height: 500px;
+
 }
+.tamaño{
+	   
+       margin-left: 1em;
+       width: 200px;
+}
+.auto{
+	position:absolute;
+	left: 930px;
+
+}
+.buscarr{
+	background-color:white;
+	width:;
+	height: 20px; 
+}
+.titulos{
+	position: absolute;;
+	left: 300px;
+	font-weight: bold;
+}
+.sli{
+	position: absolute;
+	z-index: 1;
+}
+
+/*--------------estilos--------*/
+* { padding:0px; 
+	margin:0px; }
+body { font-family:Verdana, Arial, Helvetica, sans-serif; 
+	   font-size:12px; 
+	   color:#333333; 
+}
+#menu { 
+	background-image:url(nav_bg.png); 
+	background-repeat:repeat-x; 
+	height:30px; 
+	width:500px; 
+	margin:auto; 
+	padding-left:70px; 
+}
+#nav { 
+	list-style:none; 
+}
+#nav li { 
+	float:left; 
+	background-image:url(nav_li_bg.png); 
+	background-repeat:no-repeat; 
+	background-position:right; 
+}
+#nav li a { display:block; padding:7px 10px; text-decoration:none; color:#CCCCCC; font-weight:bold; }
+#nav li a:hover { color:#FFFFFF; }
+/* Submenu */
+#nav ul.submenu { border:1px solid #000000; padding:5px; position:absolute; list-style:none; background-color:#333333;}
+#nav ul.submenu li { float:none; background-image:none; border-bottom:1px solid #999999; width:200px;}
+/* Subsubmenu */
+#nav ul.subsubmenu { border:1px solid #000000; padding:5px; position:absolute; list-style:none; background-color:#333333; margin-left:150px; margin-top:-30px;}
+#nav ul.subsubmenu li { float:none; background-image:none; border-bottom:1px solid #999999; min-width:200px;}

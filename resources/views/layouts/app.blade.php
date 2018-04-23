@@ -1,102 +1,93 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-
-  
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('title', 'AmericanBoats') }}</title>
-
-    <!-- Styles -->
     {!! MaterializeCSS::include_full() !!}
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-    <!-- <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> -->
-    
-    <!-- <link href="{{ asset('css/material-design-color-palette.min.css') }}" rel="stylesheet"> -->
-<!--     <link rel="stylesheet" type="text/css" href="{{asset('css/icomoon.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/materialize.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-<!--     <link rel="stylesheet" type="text/css" href="{{asset('css/materialize.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/materialicons.css')}}"> -->
-    <!-- <link href="{{ asset('css/normalize.css') }}" rel="stylesheet"> -->
+    <script src="{{ asset('js/app.js') }}"></script>
+
 </head>
+
 <body>
-  <nav class="nav-wrapper navpr2 ">
- <ul class="right ulnav">
-<li id="btnlogin" ><a href="{{ url('login') }}" style="color: black;"><i class="material-icons right" >person</i>INICIAR SESION</a></li>
-</ul>
-</nav>
-    <!-- <div > -->
-      <img class=" brand-logo " style="padding-left: 30px; position: absolute; padding-top: 10px;" id="imglog" href="{{ url('/') }}" src="{{asset('img/logo.jpg')}}" width="13%">
-        <nav>
-            <div class="nav-wrapper navpr">
-              <!-- <img class=" brand-logo " style="padding-left: 30px; " id="imglog" href="{{ url('/') }}" src="{{asset('img/logo.jpg')}}" width="13%"> -->
-              <ul class="centrado">
-                <li class="cftli"><a  href="{{ url('/') }}" class="cfca">Inicio</a></li>
-                <li class="cftli offset-l2"><a href="{{ url('products') }}" class="cfta">Equipo</a></li>
-                <li class="cftli"><a  href="{{ url('catalogo') }}" class="cfca">Catalogo</a></li>
-                @if(Auth::check()  && Auth::user()->type=="Admin")
-                <li class="cftli" style="background-color: black"> <a  href="{{ url('warehouse/create') }}" class="cfca">Almacen</a>
-                  </li>
-                @endif
-              </ul>
-              <ul class="right">
-                <!-- <li id="btnlogin"><a href="#!"><i class="material-icons right" >person</i>Login</a></li> -->
-                <li>           
-                <a href="{{url('/carrito')}}" >
-                
-                  <i class="material-icons right boton" >local_grocery_store</i>
-                <h6 class="n center" style="color: black">{{$productsCount}}</h6></a>
-                
-              
+<div class="nav-content navses">
+         <ul class=" right personsize">
+          <li id="btnlogin" ><a class="sti" href="{{ url('login') }}"><i class="material-icons right" >person</i>INICIAR SESIÒN</a></li>
+          </ul>
+        </div>
+
+          <nav>
+    <div class="nav-wrapper navpr">
+       <img class="imglog brand-logo" href="{{ url('home') }}" src="{{asset('img/logo.jpg')}}">
+          <ul class="left titulos" >
+                <li><a href="{{ url('products') }}" >Productos</a></li>
+                <li><a >Catalogo</a></li>
+            
+           </ul>
+               <ul class="auto">
+                 <li>
+                   <div class="input-field">
+                    <i class="material-icons prefix">search</i>
+          <input type="text" style="color:black; background-color:white; height:25px; " id="autocomplete-input" class="autocomplete">
+                  </div>
+                </li>
+                 <li><a href="{{url('/carrito')}}" >
+                  <i class="material-icons right boton" style="color:white">local_mall</i>
+                 <h6 class="n center" style="color: black">{{$productsCount}}</h6></a>   
                 </li>
               </ul>
-            </div>
-          </nav>
+      </div>
+    </div>
+  </nav>
+
+
         <main class="py-4">
             @yield('content')
         </main>
-    <!-- </div> -->
-    <footer class="page-footer " id="cfft"">
-          <div class="container">
-          <div class="row">
-              <div class="col l6 s12">
-                <img class="imglog2 brand-logo circle" src="{{asset('img/logo3.png')}}" width="40%">
+  
+               <footer class="page-footer " id="cfft"">
+                <div class="container">
+            <div class="row">
+              <div class="col l4 s12" style="color:white; font-weight:bold;">
+                <h7 class="white-text">DIRECCION</h7><br>
+                <a style="color:white;">Ruta del Bosque 17-1</a> <br>
+                <a style="color:white;">El Coporito</a><br>
+                <a style="color:white;">Valle de Bravo, Estado de Mexico</a><br>
+                <a style="color:white;">CP 51200</a>
               </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
+               <div class="col l5 s12" style="color:white; font-weight:bold;">
+                <h7 class="white-text">CONTACTO</h7><br>
+                <a style="color:white;">TEL: 7224251361</a><br>
+                <a style="color:white;">EMAIL: americanbatsmx@gmail.com</a>
               </div>
+              
             </div>
           </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2018 Copyright Jacr
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-        </footer>
+                    <div class="footer-copyright">
+                      <div class="container rigth">
+                      © American Boats - Todos los derechos reservados. 2018 - 
+                       <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+                      </div>
+                    </div>
+                  </footer>
         
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <!-- <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script> -->
-    <!-- <script type="text/javascript" src="{{asset('js/jquery-2.2.3.min.js')}}"></script> -->
-    <!-- <script type="text/javascript" src="{{asset('js/jquery.js')}}"></script> -->
-    <!-- <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script> -->
-    <!-- <script type="text/javascript" src="{{asset('js/jquery.validate.js')}}"></script> -->
-    <!-- <script type="text/javascript" src="{{asset('js/jquery.validate.min.js')}}"></script> -->
-    <!-- <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script> -->
+      <script type="text/javascript">
+        $('input.autocomplete').autocomplete({
+        data: {
+          "Apple": null,
+          "Microsoft": null,
+          "Google": 'http://placehold.it/250x250'
+        },
+        limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+        onAutocomplete: function(val) {
+          // Callback function when value is autcompleted.
+        },
+        minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+      });
+      </script>
+   
 </body>
 </html>
