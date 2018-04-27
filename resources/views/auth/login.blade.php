@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col l12 m8 s8">
-            <div class="">
-                <div class="card-header">Login</div>
+ {!! MaterializeCSS::include_full() !!}
+<div class="row"></div>
 
+<div class="container">
+    <div class="row" style="width:450px; display:inline-block;">
+        <div class="col col l12 m1 s1 offset-l1">
+        <div class="row"><div class="col col l6 m1 s1 offset-l1 center"><h5>INICIAR SESIÓN</h5></div></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col s4 col-form-label text-md-right">E-Mail Address</label>
-
-                            <div class="col-md-6">
+                            <label for="email" class="col l4 m1 s4 col-form-label text-md-right">E-Mail Address</label>
+                              <div class="col l10 m1 s4">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -26,9 +26,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                            <label for="password" class="col l6 m1 s6  col-form-label text-md-right">Password</label>
 
-                            <div class="col-md-6">
+                            <div class="col l10 s6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col l6 m1 s6">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
@@ -49,21 +49,37 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn ">
-                                    Entrar
-                                </button>
-
-                                <a class="btn" href="{{ route('password.request') }}">
-                                    Olvide la contraseña?
+                        <div class="form-group row ">
+                            <div class="col l8 m1 s12">
+                                <a style="background-color:#081d76" class="btn" href="{{ route('password.request') }}">
+                                    He olvidado mi contraseña
                                 </a>
+                            </div>
+                            <div class="row">
+                                <button style="background-color:#081d76" type="submit" class="btn ">
+                                    INICIAR SESIÓN
+                                </button>
                             </div>
                         </div>
                     </form>
+                          
                 </div>
-            </div>
         </div>
     </div>
+    
+    <div class="row dos">
+       <h5 class="">REGISTRARME</h5>
+       <p align="justify">Crea una cuenta es fácil. Introduce tu dirección de correo electrónico, completa el formulario de la página siguiente y disfruta del contenido que hay en este sitio web.</p>
+            <div class="col l2 m8 s12  right"> <button style="background-color:#081d76" type="submit" class="btn ">
+                                    REGISTRARSE
+                                </button></div>
+           
+    </div>
+
 </div>
+
+
+
+
+
 @endsection

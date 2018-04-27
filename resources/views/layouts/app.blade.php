@@ -66,8 +66,8 @@
               
             </div>
           </div>
-                    <div class="footer-copyright">
-                      <div class="container rigth">
+                    <div class="footer-copyright" style="background-color:#2f2f2f;">
+                      <div class="container">
                       © American Boats - Todos los derechos reservados. 2018 - 
                        <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
                       </div>

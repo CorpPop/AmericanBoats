@@ -3,9 +3,16 @@
 @section("content")
 {!! MaterializeCSS::include_full() !!}
 
+
+
+<div class="center">
+	<h1>Productos</h1>
+</div>
+
 <div class="row">
+ <div class="container">
 	<div id="menu">
-<ul id="nav">
+<ul id="nav" >
     <li><a href="#">Inicio</a></li>
     <li><a href="#">Servicios</a>
 <ul class="submenu">
@@ -30,9 +37,6 @@
 </ul>
 </div>
 </div>
-
-<div class="center">
-	<h1>Productos</h1>
 </div>
 
 <div class="container">
@@ -40,7 +44,7 @@
     @foreach ($products as $product)
       <div class="card  col l3 m3 s3 offset-m1 offset-l1 offset-s1">
         <div class="card-image">
-          <img class="materialboxed" width="650" data-caption="Estas son imagenes.." src="{{asset('img/Tabla.jpg')}}"  >
+          <img class="materialboxed" width="650" data-caption="{{ $product->title }}" src="{{asset('img/Tabla.jpg')}}"  >
           
         </div>
         <div class="card-content">
