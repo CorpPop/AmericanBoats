@@ -25,7 +25,10 @@
           <ul class="left titulos" >
                 <li><a href="{{ url('products') }}" >Productos</a></li>
                 <li><a >Catalogo</a></li>
-            
+                 @if(Auth::check()  && Auth::user()->type=="Admin")
+                <li style="background-color: black"> <a  href="{{ url('warehouse/create') }}">Almacen</a>
+                  </li>
+                @endif
            </ul>
                <ul class="auto">
                  <li>
