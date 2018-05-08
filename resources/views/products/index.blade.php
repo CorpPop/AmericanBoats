@@ -41,15 +41,23 @@
 
 <div class="container">
 	<div class="row">
+
     @foreach ($products as $product)
+    
       <div class="card  col l3 m3 s3 offset-m1 offset-l1 offset-s1">
         <div class="card-image">
-          <img class="materialboxed" width="650" data-caption="{{ $product->title }}" src="{{asset('img/Tabla.jpg')}}"  >
+          <img class="materialboxed" style="max-width: 100%; height: 150px;" data-caption="{{ $product->title }}" src="{{url("/products/images/$product->id.$product->extension")}}"  >
           
         </div>
         <div class="card-content">
           <span  class="card-title" style="color:black; font-size: 1em;">{{ $product->title }}</span>
         </div>
+        @if(Auth::check()  && Auth::user()->type=="Admin")
+ 		<div class="card-content">
+ 			<a  href="{{url('/products/'.$product->id.'/edit')}}">Editar</a>
+					@include('products.delete',['product' => $product])
+ 		</div>
+ 		@endif
         <div class="card-action">
           <a href="{{url('/products/'.$product->id.'')}}" style="color:black">{{ $product->pricing }}<i class="material-icons right boton">local_grocery_store</i></a>
         </div>

@@ -8,14 +8,30 @@
     <title>{{ config('title', 'AmericanBoats') }}</title>
     {!! MaterializeCSS::include_full() !!}
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <script src="{{ asset('js/app.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/materialicons.css') }}">
+    <!-- <script src="{{ url('css/materialicons.css') }}"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
 </head>
 
 <body>
 <div class="nav-content navses">
          <ul class=" right personsize">
-          <li id="btnlogin" ><a class="sti" href="{{ url('login') }}"><i class="material-icons right" >person</i>INICIAR SESIÒN</a></li>
+          @if(Auth::check())
+          <li id="btnlogin" ><a class="sti" href="{{ url('login') }}"><i class="material-icons right" >person</i> 
+            <!-- {{Auth::user()->email}}INICIAR SESIÒN  -->
+        
+              
+              {{Auth::user()->email}}
+             
+      
+          </a></li>
+            
+           @else
+            <li id="btnlogin" ><a class="sti" href="{{ url('login') }}"><i class="material-icons right" >person</i>INICIAR SESION</a></li>
+            @endif  
           </ul>
         </div>
 
@@ -49,6 +65,7 @@
 
         <main class="py-4">
             @yield('content')
+             <!-- <script src="{{ url('js/app.js') }}"></script> -->
         </main>
   
                <footer class="page-footer " id="cfft"">
@@ -91,6 +108,6 @@
         minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
       });
       </script>
-   
+    <script src="{{ asset('/js/app1.js') }}"></script>
 </body>
 </html>

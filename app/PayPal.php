@@ -49,7 +49,7 @@ class Paypal
 		$baseURL = url('/');
 
 		return \PaypalPayment::redirectUrls()
-							 ->setReturnUrl($baseURL.'/payements/store')
+							 ->setReturnUrl($baseURL.'/payments/store')
 							 ->setCancelUrl($baseURL.'/carrito');
 	}
 	public function items(){
@@ -63,8 +63,13 @@ class Paypal
 	}
 	public function amount(){
 		return \PaypalPayment::amount()->setCurrency('USD')
-							->setTotal($this->shopping_cart->total());
+							->setTotal($this->shopping_cart->totalUSD());
 	}
-	
+	public function execute($paymentId,$payerID){
+		$payment = \PaypalPayment::getById($paymentId,$this->_apiContext);
+		$execution = \PaypalPayment::PaymentExecution()->setPayerId($payerID);
+		$payment->execute($execution,$this->_apiContext);
+		return $payment->execute($execution,$this->_apiContext);
+	}
 
 }

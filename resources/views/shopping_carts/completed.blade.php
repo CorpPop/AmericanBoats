@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-
+{!! MaterializeCSS::include_full() !!}
 	<header class="big-padding text-center blue-grey white-text">
 		<h3>Compra Completada</h3>
 	</header>
@@ -21,6 +21,11 @@
 			</div>
 
 			<div class="row">
+				<div class="col s6 l6">Codigo Postal</div>
+				<div class="col s6 l6">{{ $order->postal_code }}</div>
+			</div>
+
+			<div class="row">
 				<div class="col s6 l6">Cuidad</div>
 				<div class="col s6 l6">{{$order->city}}</div>
 			</div>
@@ -29,6 +34,11 @@
 				<div class="col s6 l6">Estado y pais</div>
 				<div class="col s6 l6">{{"$order->state $order->country_code"}}</div>
 			</div>
+
+			<div class="text-center">
+				<a href="{{url('/compras/'.$shopping_cart->customid)}}">Link</a>
+			</div>
+
 		</div>
 	</div>
 @endsection

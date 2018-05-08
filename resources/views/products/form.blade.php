@@ -6,8 +6,23 @@
 	<div class="input-field col l6 m3 s6">
 		{{ Form::number('pricing',$product->pricing,['class' => 'form-control','placeholder'=>'Precio del producto'])}}
 	</div>
-	<div class="input-field col l6 m3 s6">
+
+	<div class="input-field col l6 m3 s6 ">
+		<span>choose file</span>
 		{{ Form::file('cover') }}
+	</div>
+
+	<div class="input-field col l6 m3 s6 ">
+		<span>choose file</span>
+		{{ Form::file('cover2') }}
+	</div>
+
+	<div class="input-field col l6 m3 s6 ">
+		{{ Form::file('cover3') }}
+	</div>
+
+	<div class="input-field col l6 m3 s6 ">
+		{{ Form::file('cover4') }}
 	</div>
 	<div class="input-field col s6">
 		{{ Form::textarea('description',$product->description,['class' => 'form-control','placeholder'=>'Descripcion de producto'])}}

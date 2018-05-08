@@ -26,11 +26,17 @@ class ShoppingCart extends Model
     public function products(){
         return $this->belongsToMany('App\product','in_shopping_carts');
     }
+    public function order(){
+        return $this->hasOne("App\Order")->first();
+    }
 	public function productsSize(){
 		return $this->products()->count();
 	}
     public function total(){
         return $this->products()->sum('pricing');
+    }
+    public function totalUSD(){
+        return $this->products()->sum('pricing') / 100;
     }
     public static function findOrCreateBySessionID($shopping_cart_id){
     	if($shopping_cart_id){

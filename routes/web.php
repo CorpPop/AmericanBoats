@@ -16,12 +16,16 @@
 // });
 Route::get('/','MainController@home');
 Route::get('/carrito','ShoppingCartsController@index');
+Route::get('/payments/store','PaymentsController@store');
+
 Auth::routes();
 
 Route::resource('products','ProductsController');
 Route::resource('catalogo','CatalogosController');
-Route::resource('warehouse','WarehousesController');
+Route::resource('warehouses','WarehouseController');
 Route::resource('in_shopping_carts','InShoppingCartsController',['only' => ['store','destroy']]);
+Route::resource('orders','OrdersController',['only' => ['index','update']]);
+Route::resource('compras','ShoppingCartsController',['only' => ['show']]);
 // Route::resource('create','ProductsController@create');
 /*
 	GET /products => index

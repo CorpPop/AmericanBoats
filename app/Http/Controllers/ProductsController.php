@@ -15,6 +15,9 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        // $this->middleware("auth",["except" => "show"]);
+    }
     public function index()
     {
         $products = Product::all();
@@ -42,12 +45,21 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $hasFile = $request->hasFile('cover') && $request->cover->isValid();
+        $hasFile2 = $request->hasFile('cover2') && $request->cover2->isValid();
+        $hasFile3 = $request->hasFile('cover3') && $request->cover2->isValid();
+        $hasFile4 = $request->hasFile('cover4') && $request->cover2->isValid();
         $product = new Product;
         $product->id = null;
         $product->user_id = Auth::user()->id;
         $product->title = $request->title;
         $product->description = $request->description;       
         $product->pricing = $request->pricing;
+        $extension2 = $request->cover2->extension();
+        $product->extension2 = $extension2;
+        $extension3 = $request->cover3->extension();
+        $product->extension3 = $extension3;
+        $extension4 = $request->cover4->extension();
+        $product->extension4 = $extension4;
 
         if ($hasFile) {
             $extension = $request->cover->extension();
@@ -56,6 +68,9 @@ class ProductsController extends Controller
         if($product->save()){
             if($hasFile){
                 $request->cover->storeAs('images',"$product->id.$extension");
+                $request->cover2->storeAs('images',"$product->id.a.$extension");
+                $request->cover3->storeAs('images',"$product->id.b.$extension");
+                $request->cover4->storeAs('images',"$product->id.c.$extension");
             }
             return redirect("/catalogo");
             // return view("products.create");

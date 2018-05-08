@@ -6,16 +6,16 @@
 <div class="row" style="background-color:black; top:90px; height:500px;">
 <div id="gallery">
 	<div id="gallery_output" style="position:relative; top:40px; left:90px">
-		<img class="materialboxed" data-caption="" style="width:500px; height:400px; "  id="img1" src="{{asset('img/logo.jpg')}}" />
-		<img class="materialboxed" data-caption="" style="width:500px; height:400px; "  id="img2" src="{{asset('img/login.jpg')}}" />		
-		<img class="materialboxed" data-caption="" style="width:500px; height:400px; " id="img3" src="{{asset('img/login2.jpg')}}" />
-		<img class="materialboxed" data-caption="" style="width:500px; height:400px; " id="img4" src="{{asset('img/login2.jpg')}}" />	
+		<img class="materialboxed" data-caption="" style="width:500px; height:400px; "  id="img1" src="{{url("/products/images/$product->id.$product->extension")}}" />
+		<img class="materialboxed" data-caption="" style="width:500px; height:400px; "  id="img2" src="{{url("/products/images/$product->id.a.$product->extension")}}" />		
+		<img class="materialboxed" data-caption="" style="width:500px; height:400px; " id="img3" src="{{url("/products/images/$product->id.b.$product->extension")}}" />
+		<img class="materialboxed" data-caption="" style="width:500px; height:400px; " id="img4" src="{{url("/products/images/$product->id.c.$product->extension")}}" />	
 		</div>
  <div id="gallery_nav" style="width:50px; position:absolute; top:200px">
-		<a rel="img1" href="javascript:;"><img src="{{asset('img/logo.jpg')}}"  width="80" height="80" /></a>
-		<a rel="img2" href="javascript:;"><img src="{{asset('img/login.jpg')}}"  width="80" height="80" /></a>
-		<a rel="img3" href="javascript:;"><img src="{{asset('img/login2.jpg')}}"  width="80" height="80" /></a>
-		<a rel="img4" href="javascript:;"><img src="{{asset('img/login2.jpg')}}" width="80" height="80"  /></a>
+		<a rel="img1" href="javascript:;"><img src="{{url("/products/images/$product->id.$product->extension")}}"  width="80" height="80" /></a>
+		<a rel="img2" href="javascript:;"><img src="{{url("/products/images/$product->id.a.$product->extension")}}"  width="80" height="80" /></a>
+		<a rel="img3" href="javascript:;"><img src="{{url("/products/images/$product->id.b.$product->extension")}}"  width="80" height="80" /></a>
+		<a rel="img4" href="javascript:;"><img src="{{url("/products/images/$product->id.c.$product->extension")}}" width="80" height="80"  /></a>
 	</div>
 	<div class="clear"></div>
 </div>
