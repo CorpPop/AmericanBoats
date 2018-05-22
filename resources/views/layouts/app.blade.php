@@ -37,12 +37,17 @@
 
           <nav>
     <div class="nav-wrapper navpr">
-       <img class="imglog brand-logo" href="{{ url('home') }}" src="{{asset('img/logo.jpg')}}">
+       <a href="{{ url('public/index') }}"><img class="imglog brand-logo" src="{{asset('img/logo.jpg')}}"></a>
           <ul class="left titulos" >
                 <li><a href="{{ url('products') }}" >Productos</a></li>
-                <li><a >Catalogo</a></li>
+                <li><a href="{{ url('catalogo') }}">Catalogo</a></li>
                  @if(Auth::check()  && Auth::user()->type=="Admin")
-                <li style="background-color: black"> <a  href="{{ url('warehouse/create') }}">Almacen</a>
+                <li style="background-color: black;box-shadow: 1px 1px 6px black;"> <a  href="{{ url('warehouses/create') }}">Almacen</a>
+                  </li>
+                @endif
+                  <li><a style="width:1px;color:#081d76">l</a></li>
+                 @if(Auth::check()  && Auth::user()->type=="Admin")
+                <li style="background-color: black;box-shadow: 1px 1px 6px black;"> <a  href="{{ url('/orders') }}">Ordenes</a>
                   </li>
                 @endif
            </ul>
@@ -81,7 +86,7 @@
                <div class="col l5 s12" style="color:white; font-weight:bold;">
                 <h7 class="white-text">CONTACTO</h7><br>
                 <a style="color:white;">TEL: 7224251361</a><br>
-                <a style="color:white;">EMAIL: americanbatsmx@gmail.com</a>
+                <a style="color:white;">EMAIL: americanboatsmx@gmail.com</a>
               </div>
               
             </div>
@@ -95,12 +100,10 @@
                   </footer>
         
       <script type="text/javascript">
-        $('input.autocomplete').autocomplete({
+        $('input.autocomplete').autocomplete({        
+ 
         data: {
-          "Apple": null,
-          "Microsoft": null,
-          "Google": 'http://placehold.it/250x250'
-        },
+"hola":null,         },
         limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
         onAutocomplete: function(val) {
           // Callback function when value is autcompleted.

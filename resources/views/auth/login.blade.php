@@ -7,13 +7,14 @@
 <div class="container">
     <div class="row" style="width:450px; display:inline-block;">
         <div class="col col l12 m1 s1 offset-l1">
-        <div class="row"><div class="col col l6 m1 s1 offset-l1 center"><h5>INICIAR SESIÓN</h5></div></div>
+        <div class="row">
+        <div class="col col l6 m1 s1 offset-l1 center"><h5>INICIAR SESIÓN</h5></div></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col l4 m1 s4 col-form-label text-md-right">E-Mail Address</label>
+                            <label for="email" class="col l4 m1 s4 col-form-label text-md-right">Correo Electronico</label>
                               <div class="col l10 m1 s4">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
@@ -26,7 +27,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col l6 m1 s6  col-form-label text-md-right">Password</label>
+                            <label for="password" class="col l6 m1 s6  col-form-label text-md-right">Contraseña</label>
 
                             <div class="col l10 s6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -39,7 +40,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                       <!-- <div class="form-group row">
                             <div class="col l6 m1 s6">
                                 <div class="checkbox">
                                     <label>
@@ -47,16 +48,19 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
-                        <div class="form-group row ">
-                            <div class="col l8 m1 s12">
-                                <a style="background-color:#081d76" class="btn" href="{{ route('password.request') }}">
-                                    He olvidado mi contraseña
+                        <div class="row ">
+                         
+                            <div class="col l6 m3 s8">
+                                <a style="background-color:#081d76; width:210px" class="btn" href="{{ route('password.request') }}">
+                                    Olvide mi contraseña
                                 </a>
                             </div>
-                            <div class="row">
-                                <button style="background-color:#081d76" type="submit" class="btn ">
+                        
+            
+                                <div class="col l2 m3 s3">
+                                <button style="background-color:#081d76" type="submit" class="btn">
                                     INICIAR SESIÓN
                                 </button>
                             </div>
@@ -67,12 +71,18 @@
         </div>
     </div>
     
-    <div class="row dos">
+    <div class="row dos" >
        <h5 class="">REGISTRARME</h5>
+       <div class="row" >
+       <div class="card-body" >
        <p align="justify">Crea una cuenta es fácil. Introduce tu dirección de correo electrónico, completa el formulario de la página siguiente y disfruta del contenido que hay en este sitio web.</p>
-            <div class="col l2 m8 s12  right"> <button style="background-color:#081d76" type="submit" class="btn ">
+               <div class="row" style="position:relative;top:30px;right:40px;">
+            <div class="col l2 m8 s12  right"> <a style="background-color:#081d76;" type="submit" class="btn ">
                                     REGISTRARSE
-                                </button></div>
+                                </a></div>
+           </div>
+        </div>
+        </div>
            
     </div>
 

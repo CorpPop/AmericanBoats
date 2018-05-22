@@ -10,7 +10,7 @@ class MainController extends Controller
 		// $shopping_cart_id = \Session::get('shopping_cart_id');
 		// $shopping_cart = ShoppingCart::findOrCreateBySessionID($shopping_cart_id);
 		// \Session::put("shopping_cart_id", $shopping_cart->id);
-		return view('main.home');
+		return view('main.index');
 	}
 	
 }

@@ -2,36 +2,19 @@
 
 @section("content")
 {!! MaterializeCSS::include_full() !!}
-
-<div class="container">
-	<div class="panel default">
-		<div class="oanel head">
-			<h4>La ventas</h4>
-		</div>
-		<div class="panel body">
-			<h4>Estadisticas</h4>
-			<div class="row">
-				<div class="col s 4 l2 m3" style="border-right: 2em; background-color: grey;">
-					<!-- <span style="color: red; width: 20%;"></span> -->
-					<h4 style="color: white; border-right: 20px;">{{$totalMonth}} $</h4>
-					Ingresos del mes
-				</div>
-				<div class="col s 4 l2 m3">
-					<!-- <span style="color: red;">{{$totalMonthCount}}</span> -->
-					<h4 style="color: red; align-items: center;">{{$totalMonthCount}}</h4>
-					Numero de ventas
-				</div>
-			</div>
-			<h4>Ventas mensuales</h4>
-			<table class="table">
+<div ></div>
+<div class="row" style="position:relative;left:150px;top:100px">
+	 <div class="container">
+	 <div><h4>VENTAS POR MES</h4></div>
+	 	      <table class="table">
 				<thead>
 					<tr>
-						<td>ID. venta</td>
+						<td>Clave</td>
 						<td>Comprador</td>
 						<td>Dirección</td>
 						<td>No. guía</td>
-						<td>Status</td>
-						<td>Fecha de venta</td>
+						<td>Estado</td>
+						<td>Fecha venta</td>
 						<td>Acciones</td>
 					</tr>
 				</thead>
@@ -69,10 +52,36 @@
 					@endforeach
 				</tbody>
 			</table>
+	 </div>
+</div>
+<div class="container" style="position:relative;right:130px">
+	<div class="panel default">
+	<h6 style="font-weight: bold;">ESTADISTICAS</h6>
+		<div class="panel body">
+			
+		
+			<div class="row">
+				<div class="col s4 l2 m3" style="border-right:2em; background-color: grey;box-shadow: 1px 1px 6px black;">
+					<!-- <span style="color: red; width: 20%;"></span> -->
+					<h4 style="color: white; border-right: 20px;">{{$totalMonth}} $</h4>
+					Ingresos del mes
+				</div>
+				
+				
+			</div>
+			<div class="row" ><div class="col s4 l2 m3" style="border-right:2em; background-color: grey;box-shadow: 1px 1px 6px black;">
+					<h4 style="color: red; border-right: 20px;" class="center">{{$totalMonthCount}}</h4>
+					Numero de ventas
+				</div></div>
+			
+
+			
 		</div>
 	</div>
 </div>
 
+
+<div style="height:100px"></div>
 <script src="{{ url('js/app1.js') }}"></script>
 
 @endsection

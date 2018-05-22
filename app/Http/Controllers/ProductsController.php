@@ -54,6 +54,8 @@ class ProductsController extends Controller
         $product->title = $request->title;
         $product->description = $request->description;       
         $product->pricing = $request->pricing;
+        /*$extension1 = $request->cover->extension();
+        $product->extension1 = $extension1;*/
         $extension2 = $request->cover2->extension();
         $product->extension2 = $extension2;
         $extension3 = $request->cover3->extension();
@@ -89,7 +91,9 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
+       
         return view('products.show',['product' => $product]);
+
     }
 
     /**

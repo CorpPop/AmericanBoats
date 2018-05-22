@@ -5,46 +5,49 @@
 
 
 
-<div class="center">
-	<h1>Productos</h1>
+<div class="center" style="height:100px">
 </div>
 
 <div class="row">
  <div class="container">
 	<div id="menu">
-<ul id="nav" >
-    <li><a href="#">Inicio</a></li>
-    <li><a href="#">Servicios</a>
-<ul class="submenu">
-    <li><a href="#">Marketing</a>
-<ul class="subsubmenu">
-    <li><a href="#">Precios</a></li>
-    <li><a href="#">Consultas</a></li>
-</ul>
+	<ul id="nav" >
+	    <li style="background-color:#cfcfd0"><a href="#">FILTRAR POR</a></li>
+	    <li><a href="#">CATEGORIA</a>
+	    <ul class="submenu">
+              <li><a href="#">TABLAS</a></li>
+              <li><a href="#">CHALECOS</a></li>
+	          <li style="width:100%;box-shadow: 1px 1px 7px black;"><a class="right" href="">RESULTADOS()</a></li>
+	</ul></li>
+
+	    <li><a href="#">TALLA</a>
+	<ul class="submenu">
+              <li><a href="#">CHICA</a></li>
+              <li><a href="#">MEDIANA</a></li>
+              <li><a href="#">GRANDE</a></li>
+	          <li style="width:100%;box-shadow: 1px 1px 7px black;"><a class="right" href="">RESULTADOS()</a></li>
+	</ul>
+	</li>
+	    <li><a href="#">DEPORTE</a>
+	<ul class="submenu">
+	    <li><a href="#">WAKEBOARD</a></li>
+	    <li style="width:100%;box-shadow: 1px 1px 7px black;"><a class="right" href="">RESULTADOS()</a></li>
+	</ul>
 </li>
-    <li><a href="#">Mercadotecnia</a></li>
-    <li><a href="#">Encuestas</a></li>
-</ul>
-</li>
-    <li><a href="#">Nosotros</a>
-<ul class="submenu">
-    <li><a href="#">Vision</a></li>
-    <li><a href="#">Mision</a></li>
-</ul>
-</li>
-    <li><a href="#">Otros</a></li>
-    <li><a href="#">Contactanos</a></li>
 </ul>
 </div>
 </div>
 </div>
+
+
+  
 
 <div class="container">
 	<div class="row">
 
     @foreach ($products as $product)
     
-      <div class="card  col l3 m3 s3 offset-m1 offset-l1 offset-s1">
+      <div class="card  col l3 m4 s6 offset-l1 ">
         <div class="card-image">
           <img class="materialboxed" style="max-width: 100%; height: 150px;" data-caption="{{ $product->title }}" src="{{url("/products/images/$product->id.$product->extension")}}"  >
           
@@ -53,9 +56,11 @@
           <span  class="card-title" style="color:black; font-size: 1em;">{{ $product->title }}</span>
         </div>
         @if(Auth::check()  && Auth::user()->type=="Admin")
- 		<div class="card-content">
- 			<a  href="{{url('/products/'.$product->id.'/edit')}}">Editar</a>
-					@include('products.delete',['product' => $product])
+ 		<div class="row">
+ 		<div class="col l6 m6 s12"><a class="btn-small" style="background-color:#081d76" href="{{url('/products/'.$product->id.'/edit')}}">Editar</a></div>
+ 			<div class="col l6 m6 s12">
+		    @include('products.delete',['product' => $product])
+		    </div>
  		</div>
  		@endif
         <div class="card-action">
@@ -70,18 +75,17 @@
 <script type="text/javascript">
 	$(document).ready(function(){
     $('.materialboxed').materialbox();
-// <![CDATA[
+
 function mainmenu(){ // Oculto los submenus 
 $(" #nav ul ").css({display: "none"}); // Defino que submenus deben estar visibles cuando se pasa el mouse por encima 
 $(" #nav li").hover(function(){   
 	$(this).find('ul:first:hidden').css({visibility: "visible",display: "none"
-             }).slideDown(400);},function(){       
+             }).slideDown(400);},
+	function(){       
 		$(this).find('ul:first').slideUp(400);  
 	  });} 
-$(document).ready(function(){     
+   
 	mainmenu(); 
-     });
-// ]]>
   });
 </script>
 
