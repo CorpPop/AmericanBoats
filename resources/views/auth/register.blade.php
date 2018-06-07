@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+<div style="height:100px"></div>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Register</div>
-
+    <div class="row" style="width:450px;display:inline-block">
+        <div class="col col l12 m1 s1 offset-l1">
+        <div class="row">
+        <div class="left"><h5>TUS DATOS</h5></div></div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                   <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                        <div class="form">
+                            <label for="name" class="col l6" >Nombre</label>
 
-                            <div class="col-md-6">
+                            <div class="col 16">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
@@ -24,11 +24,13 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="row"></div>
+                        <div class="row">
+        <div class="left"><h5>DATOS DE INICIO DE SESIÓN</h5></div></div>
+                        <div class="form">
+                            <label for="email" class="col l12">Correo electrónico</label>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-
-                            <div class="col-md-6">
+                            <div class="col l12">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
@@ -39,10 +41,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                        <div class="form ">
+                            <label for="password" class="col l12">Contraseña</label>
 
-                            <div class="col-md-6">
+                            <div class="col 12">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -53,25 +55,31 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                        <div class="form">
+                            <label for="password-confirm" class="col l6">Confirma la contraseña</label>
 
-                            <div class="col-md-6">
+                            <div class="col l12">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="row"></div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
+                        <div class="row">
+                          <div class="form">
+                            <div class="col l5  right">
+                                <div class="row"> 
+                                <button style="background-color:#081d76" type="submit" class="btn btn-primary">
+                                   Registrarme
                                 </button>
+                                </div>
                             </div>
                         </div>
+                      </div>
+                        
                     </form>
                 </div>
-            </div>
         </div>
     </div>
-</div>
+    </div>
+<div style="height:50px"></div>
 @endsection

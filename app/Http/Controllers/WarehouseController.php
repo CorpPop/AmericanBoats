@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Warehouse;
-
+use App\Product;
 class WarehouseController extends Controller
 {
     /**
@@ -18,7 +18,8 @@ class WarehouseController extends Controller
     public function index()
     {
         $warehouses = Warehouse::all();
-        return view("warehouses.index",["warehouses" => $warehouses]);
+        $products = Product::all();
+        return view("warehouses.index",["warehouses" => $warehouses,"products" => $products]);
     }
 
     /**
@@ -29,8 +30,9 @@ class WarehouseController extends Controller
     public function create()
     {
         $warehouse = new Warehouse;
+        $product = Product::all();
+        return view("warehouses.create",["warehouse" => $warehouse, "product" => $product]);
 
-        return view("warehouses.create",["warehouse" => $warehouse]);
     }
 
     /**
@@ -45,11 +47,19 @@ class WarehouseController extends Controller
         $warehouse = new Warehouse;
         $warehouse->id_warehouse = null;
         // $warehouse->id_warehouse = Auth::user()->id;
-        $warehouse->Procts_warehouse = $request->Procts_warehouse;
+        $warehouse->id_product = $request->id_product;
         $warehouse->size = $request->size;       
         $warehouse->countw = $request->countw;
         $warehouse->color = $request->color;
         $warehouse->save();
+          return redirect("/warehouses/");
+
+    }
+    public function select_product()
+    {
+      
+        $products = Product::all();
+        
 
     }
 

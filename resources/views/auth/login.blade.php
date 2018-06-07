@@ -14,7 +14,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col l4 m1 s4 col-form-label text-md-right">Correo Electronico</label>
+                            <label for="email" class="col l4 m1 s4 col-form-label text-md-right">Correo Electrónico</label>
                               <div class="col l10 m1 s4">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
@@ -77,7 +77,7 @@
        <div class="card-body" >
        <p align="justify">Crea una cuenta es fácil. Introduce tu dirección de correo electrónico, completa el formulario de la página siguiente y disfruta del contenido que hay en este sitio web.</p>
                <div class="row" style="position:relative;top:30px;right:40px;">
-            <div class="col l2 m8 s12  right"> <a style="background-color:#081d76;" type="submit" class="btn ">
+            <div class="col l2 m8 s12  right"> <a style="background-color:#081d76;" href="{{ url('/register') }}" class="btn ">
                                     REGISTRARSE
                                 </a></div>
            </div>

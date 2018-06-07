@@ -16,11 +16,13 @@
 // });
 Route::get('/','MainController@home');
 Route::get('/carrito','ShoppingCartsController@index');
+Route::post('/carrito','ShoppingCartsController@checkout');
+// Route::post('/carrito','ShoppingCartsController@checktiket');
 Route::get('/payments/store','PaymentsController@store');
 
 Auth::routes();
-
 Route::resource('products','ProductsController');
+Route::resource('politicas','PoliticasController');
 Route::resource('catalogo','CatalogosController');
 Route::resource('warehouses','WarehouseController');
 Route::resource('in_shopping_carts','InShoppingCartsController',['only' => ['store','destroy']]);
@@ -37,6 +39,10 @@ Route::resource('compras','ShoppingCartsController',['only' => ['show']]);
 	PUT/PATCH /products/:id
 	DELETE /products/:id
 */
+
+Route::get("caballero/{id}","ProductsController@metodo_prueba");
+// Route::get("products/carro","ProductsController@carro");
+
 
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('products/images/{filename}',function($filename){

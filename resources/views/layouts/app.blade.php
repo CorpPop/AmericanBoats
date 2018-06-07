@@ -20,34 +20,35 @@
 <div class="nav-content navses">
          <ul class=" right personsize">
           @if(Auth::check())
-          <li id="btnlogin" ><a class="sti" href="{{ url('login') }}"><i class="material-icons right" >person</i> 
+          <li id="btnlogin" ><a class="sti" href="{{ url('login') }}">
             <!-- {{Auth::user()->email}}INICIAR SESIÒN  -->
         
               
-              {{Auth::user()->email}}
+              {{Auth::user()->email}} / <a class="sti" href="">Salir<i class="material-icons right" >exit_to_app</i> </a> 
              
       
           </a></li>
             
            @else
-            <li id="btnlogin" ><a class="sti" href="{{ url('login') }}"><i class="material-icons right" >person</i>INICIAR SESION</a></li>
+            <li id="btnlogin" ><a class="sti" href="{{ url('login') }}"><i class="material-icons right" >person</i>INICIAR SESIÓN</a></li>
             @endif  
           </ul>
         </div>
 
           <nav>
     <div class="nav-wrapper navpr">
-       <a href="{{ url('public/index') }}"><img class="imglog brand-logo" src="{{asset('img/logo.jpg')}}"></a>
+       <a href="{{ url('/') }}"><img class="imglog brand-logo" src="{{asset('img/logo.jpg')}}"></a>
           <ul class="left titulos" >
+                <li><a href="{{ url('/') }}" >Inicio<i class="material-icons left">home</i></a></li>
                 <li><a href="{{ url('products') }}" >Productos</a></li>
-                <li><a href="{{ url('catalogo') }}">Catalogo</a></li>
+                <li><a href="{{ url('catalogo') }}">Catálogo</a></li>
                  @if(Auth::check()  && Auth::user()->type=="Admin")
-                <li style="background-color: black;box-shadow: 1px 1px 6px black;"> <a  href="{{ url('warehouses/create') }}">Almacen</a>
+                <li style="background-color:black;box-shadow:3px 2px 10px white;"> <a  href="{{ url('warehouses/create') }}">Almacén</a>
                   </li>
                 @endif
-                  <li><a style="width:1px;color:#081d76">l</a></li>
+                 
                  @if(Auth::check()  && Auth::user()->type=="Admin")
-                <li style="background-color: black;box-shadow: 1px 1px 6px black;"> <a  href="{{ url('/orders') }}">Ordenes</a>
+                <li style="background-color:black;box-shadow:3px 2px 10px white;"> <a  href="{{ url('/orders') }}">Ordenes</a>
                   </li>
                 @endif
            </ul>
@@ -77,10 +78,10 @@
                 <div class="container">
             <div class="row">
               <div class="col l4 s12" style="color:white; font-weight:bold;">
-                <h7 class="white-text">DIRECCION</h7><br>
+                <h7 class="white-text">DIRECCIÓN</h7><br>
                 <a style="color:white;">Ruta del Bosque 17-1</a> <br>
                 <a style="color:white;">El Coporito</a><br>
-                <a style="color:white;">Valle de Bravo, Estado de Mexico</a><br>
+                <a style="color:white;">Valle de Bravo, Estado de México</a><br>
                 <a style="color:white;">CP 51200</a>
               </div>
                <div class="col l5 s12" style="color:white; font-weight:bold;">
@@ -93,7 +94,7 @@
           </div>
                     <div class="footer-copyright" style="background-color:#2f2f2f;">
                       <div class="container">
-                      © American Boats - Todos los derechos reservados. 2018 - 
+                      © American Boats - Todos los derechos reservados. 2018 - <a href="{{ url('politicas') }}">Politicas de privacidad</a>
                        <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
                       </div>
                     </div>

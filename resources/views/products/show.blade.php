@@ -23,6 +23,8 @@
  <div class="container" >
  	<div class="card producto col col l12 m1 s1 offset-l1" style="width:400px; top:190px; height:525px;position:absolute; right: 40px; display:inline-block; ">
  		<div class="row">
+
+      <!-- {!! Form::open(['url' => '/carrito','method' => 'POST','class'=> 'col s12 center card-body','style'=>'']) !!} -->
  			<!--<div class="col s6 m6 ">
  				@if($product->extension)
  					<img class="product-avatar" src="{{url("/products/images/$product->id.$product->extension")}}">
@@ -30,37 +32,63 @@
  			</div>-->
  			<div class="container">
  			<div class="col l12 m4 s12">
- 			     <div class="row"> <div class="col l12 m4 s12 ">
- 			     <h5 style="font-size:2em;">{{$product->title}}</h5>
+ 			     <div class="row"> 
+            <div class="col l12 m4 s12 ">
+            <!-- {{ Form::text('title',$product->title,['class' => 'form-control','id'=>'numero','placeholder'=>'Ingrese titulo...'])}}
+            @foreach ($product1 as $product1) -->
+ 			     <h5 style="font-size:2em;">{{$product1->title}}</h5>
+           <!-- @endforeach -->
  			     </div></div>
  			    
  			     <div class="row">
  			     	
-  <div class="input-field col l7 s12">
-    <select>
+  <div class="input-field col l12 s12">
+    <select  {{ Form::text('talla',$tiket->talla,['class' => 'form-control','id'=>'talla'])}}>
       <option value="" disabled selected>Elige una talla...</option>
-      <option value="1"></option>
+      <!-- <option value="1"></option> -->
+@foreach ($warehouse as $warehouse)
+     <option value="{{ $warehouse->id_warehouse }}" > {{$warehouse->size}}</option>
+
+@if($warehouse->size == "")
+       <option value="" style="color: red;">Sin existencia</option>
+@endif
+@endforeach
     </select>
-    <label>Materialize Select</label>
+
+    <label>Seleccione una talla</label>
   </div>
-   <div class="input-field col l5 s12">
-    <select>
-      <option value="" disabled selected>Cantidad...</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
+   <div class="input-field col l12 s12">
+
+     {{ Form::text('cantidad',$tiket->cantidad,['class' => 'form-control','id'=>'cantidad','placeholder'=>'Ingrese cantidad'])}}
+    <label for="cantidad">Cantidad</label>
   </div>
+
+
  			     </div>
+          <div class="row">
+          <p class="col l6 s12">
+             <strong>Descripcion:</strong> {{$product->description}}
+          </p>
+              <p style="color: red;">
+               <!-- " {{$product->description}}" -->
+                 <!-- <div class="form-control">{{$product->description}}<div> -->
+              </p>
+              <div class="input-field col l6 m3 s12">
+               {{ Form::hidden('descripcion',$product->id,['class' => 'form-control','id'=>'cantidad','placeholder'=>'Ingrese cantidad']) }}
+                  <!-- <label for="numero">{{$product->description}}</label> -->
+
+              </div>
+          </div>
+
  			     <div class="row">
  			     	<p class="col l6 s12">
- 					<strong>Costo</strong>
- 				</p>
- 				<p class="col l6 s12" style="color: red;">
- 					${{$product->pricing}}
- 				</p>
+ 					    <strong>Costo</strong>
+ 			    	</p>
+ 				      <p class="col l6 s12" style="color: red;">
+ 				       	${{$product->pricing}}
+ 			    	</p>
  			     </div>
+          
  				
  			<div class="row">
  				<p class="col l3 s12">
@@ -68,54 +96,35 @@
  				</p>
  			</div>
       @if(Auth::check() && $product->user_id == Auth::user()->id)
-    <div class="row" style="position:relative;top:100px">
+    <div class="row" style="position:relative;">
     <div class="col l6 m6 s12"><a class="btn-small" style="background-color:#081d76" href="{{url('/products/'.$product->id.'/edit')}}">Editar</a></div>
       <div class="col l6 m6 s12">
         @include('products.delete',['product' => $product])
         </div>
+           
+
     </div>
     @endif
+    <!-- <input type="submit" name="" style="background-color:#081d76" value="Enviar" class="btn"> -->
  			</div>
 </div>
+ {!! Form::close() !!}
  		</div>
  	</div>
  </div>
 <div class="row">
-        <div class="col l12 m2 s12"><h5 class="center">DETALLES DEL PRODUCTO</h5></div>
-    	
-    	<div class="row">
-    		<div class="container">
-    		  <div class="col l6 s12" align="justify">
-    		  	   {{$product->description}}
-    		  </div>    			
-    		</div>
-
-    		 <div class="row">
-    		 <div class="col l6 s12">
-    		 	<div class="col l6 s12" align="justify">
-    		  	   {{$product->description}}
-    		  </div>    
-    		 </div>
-    		 </div>
-    	</div>
+        <div class="col l12 m2 s12"><h5 class="center">DESCRIPCIÓN DEL PRODUCTO</h5></div>
+      
+      <div class="row">
+        <div class="container">
+          <div class="col l6 s12" align="justify">
+               <li>{{$product->description}}</li> 
+          </div>          
+        </div>
+      </div>
 </div> 
 <div class="parallax-container">
       <div class="parallax"><img  style="width:450px" src="{{asset('img/paralax2.jpg')}}"></div>
-    </div>
-<div class="section black">
-<div class="col l12 m2 s12"><h5 class="center" style="color:white">PRODUCTOS RELACIONADOS</h5></div>     
-<div class="row ">
-  <div class="carousel">
-    <a class="carousel-item center" style="width:400px; height:250px" href="#one!"><img src="{{asset('img/wake.jpg')}}">COMPRAR AHORA</a>
-    <a class="carousel-item center" style="width:400px; height:250px" href="#two!"><img src="{{asset('img/wake.jpg')}}">COMPRAR AHORA</a>
-    <a class="carousel-item center" style="width:400px; height:250px" href="#three!"><img src="{{asset('img/wake.jpg')}}">COMPRAR AHORA</a>
-    <a class="carousel-item center" style="width:400px; height:250px" href="#four!"><img src="{{asset('img/wake2.jpg')}}">COMPRAR AHORA</a>
-    <a class="carousel-item center" style="width:400px; height:250px" href="#five!"><img src="{{asset('img/wake2.jpg')}}">COMPRAR AHORA</a>
-   </div>
-  </div>
- </div> 
-<div class="parallax-container">
-      <div class="parallax"><img  style="width:450px" src="{{asset('img/wake3.jpg')}}"></div>
     </div>
 <script type="text/javascript">
 	$(document).ready(function() {

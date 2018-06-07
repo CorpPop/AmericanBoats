@@ -1,6 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
+
  <script type="text/javascript">
     $(document).ready(function(){
         $("#activator2").click(function(event){
@@ -10,76 +11,56 @@
               
 });
 </script>
-<div class="catalogo">
-	<div class="row">	
-@foreach ($products as $product)
 
-<!-- 		<div class="card col l6" >
- 			<div class="col s12 m4 l6" style="background-color: black;">
- 				<?php // dd(Auth::user()->type) ?>
- 				@if(Auth::check()  && Auth::user()->type=="Admin")
- 					<div class="absolute action text-rigth">
- 					<a  href="{{url('/products/'.$product->id.'/edit')}}">Editar</a>
-				@include('products.delete',['product' => $product])
- 			        </div>
- 				@endif
- 				@if($product->extension)
- 					<img class="product-avatar" src="{{url("/products/images/$product->id.$product->extension")}}">
- 				
- 				@else
- 				<img class="product-avatar" src="{{asset('img/notfound.png')}}">
- 				@endif
- 			</div>
- 			<div class="col s12 m4 l6">
- 				<p>
- 					<strong>Descripción</strong>
- 				</p>
- 				<p>
- 					{{$product->description}}
- 				</p>
- 				<p style="text-align: right;">
- 					<strong>Costo</strong>
- 				</p>
- 				<p style="color: red; text-align: right;" class="rigth">
- 					{{$product->pricing}}
- 				</p>
- 				<p> -->
- 					 <!-- <a href="" class="btn-large">Agregar a Carrito</a> -->
- <!-- 					@include('in_shopping_carts.form',['product' => $product])
- 				</p>
- 			</div>
-</div>  -->
-<!-- ///////// -->
-<div class="card col l3">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="product-avatar" id="activator2" src="{{url("/products/images/$product->id.$product->extension")}}">
-    </div>
-    <div class="card-content">
-      <span class="card-title  grey-text text-darken-4" id="activator2">{{$product->title}}<i class="material-icons right">more_vert</i></span>
-      <p><a href="#!" id="activator2">This is a link</a></p>
-    </div>
-    <!-- <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+<body background="{{asset('img/wake3.jpg')}}">
+
+<div class="container" style="background-color: white; position:relative;box-shadow: 1px 1px 9px black">
+<div style="height:100px"></div>
+  <div class="row">
+
+    @foreach ($products as $product )
     
-    </div> -->
-    
-  </div>
-  <div id="modal1 " class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <div class="card left col l3 m1 s6 offset-l1 " style="right:40px">
+        <div class="card-image">
+          <img class="materialboxed" style="max-width: 100%; height: 150px;" data-caption="{{ $product->title }}" src="{{url("/products/images/$product->id.$product->extension")}}"  >
+          
+        </div>
+
+        <div class="card-content">
+          <span  class="card-title" style="color:black; font-size: 1em;">{{$product->title}}</span>
+        </div>
+        @if(Auth::check()  && Auth::user()->type=="Admin")
+    <div class="row">
+    <div class="col l6 m6 s12"><a class="btn-small" style="background-color:#081d76" href="{{url('/products/'.$product->id.'/edit')}}">Editar</a></div>
+      <div class="col l6 m6 s12">
+        @include('products.delete',['product' => $product])
+        </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-    
-@endforeach
-@if(Auth::check()  && Auth::user()->type=="Admin")
- 					<a href="{{url('/products/create')}}" class="btn-large waves-effect waves-light red" style="width: 400px; padding-bottom: 200px; top: 10px; left: 100px;"><i class="material-icons" style="font-size: 200px; padding-top:60px;">add</i></a>
- 				@endif
+    @endif
+        <div class="card-action">
+          <a href="{{url('/products/'.$product->id.'')}}" style="color:black">{{ $product->pricing }}<i class="material-icons right boton">local_grocery_store</i></a>
+        </div>
+      </div>
+      @endforeach
+      <div class="row">
+   @if(Auth::check()  && Auth::user()->type=="Admin")
+<div class="card left col l3 m1 s6 offset-l1 " style="right:40px">
+ <div class="card-content"><a href="{{url('/products/create')}}" class="btn-large waves-effect waves-light red" style="width: 205px; top:1px; right:20px;height:240px"><i class="material-icons left" style="font-size: 200px; padding-top:100px;">add</i></a>
+ <div class="row"></div>
+   <div class="row">
+        <h7>Agregar mas productos</h7>
+   </div>
+ </div>
+  
+</div>
+          
+        @endif
+ </div>
+ </div>
+ 
+    <div style="height:100px"></div>
+
 </div>
 
-		</div>
+ </body>
 @endsection

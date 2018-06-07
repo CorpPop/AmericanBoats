@@ -40,20 +40,21 @@
 </div>
 
 
-  
+
 
 <div class="container">
 	<div class="row">
 
-    @foreach ($products as $product)
+    @foreach ($products as $product )
     
       <div class="card  col l3 m4 s6 offset-l1 ">
         <div class="card-image">
           <img class="materialboxed" style="max-width: 100%; height: 150px;" data-caption="{{ $product->title }}" src="{{url("/products/images/$product->id.$product->extension")}}"  >
           
         </div>
+
         <div class="card-content">
-          <span  class="card-title" style="color:black; font-size: 1em;">{{ $product->title }}</span>
+          <span  class="card-title" style="color:black; font-size: 1em;">{{$product->title}}</span>
         </div>
         @if(Auth::check()  && Auth::user()->type=="Admin")
  		<div class="row">
@@ -70,7 +71,11 @@
       @endforeach
 
     </div>
+      <div>
+  	{{$products->links()}}
   </div>
+  </div>
+
   
 <script type="text/javascript">
 	$(document).ready(function(){
