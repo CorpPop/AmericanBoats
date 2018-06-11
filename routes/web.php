@@ -19,7 +19,9 @@ Route::get('/carrito','ShoppingCartsController@index');
 Route::post('/carrito','ShoppingCartsController@checkout');
 // Route::post('/carrito','ShoppingCartsController@checktiket');
 Route::get('/payments/store','PaymentsController@store');
-
+Route::get('tabla', 'WarehouseController@tabla');
+Route::get('index', 'WarehouseController@index');
+Route::get('PDF',array('as'=>'PDF','uses'=>'WarehouseController@PDF'));
 Auth::routes();
 Route::resource('products','ProductsController');
 Route::resource('politicas','PoliticasController');

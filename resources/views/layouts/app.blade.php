@@ -8,12 +8,13 @@
     <title>{{ config('title', 'AmericanBoats') }}</title>
     {!! MaterializeCSS::include_full() !!}
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css">
     <link rel="stylesheet" type="text/css" href="{{ url('css/materialicons.css') }}">
     <!-- <script src="{{ url('css/materialicons.css') }}"></script> -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-
+     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+      
 </head>
 
 <body>

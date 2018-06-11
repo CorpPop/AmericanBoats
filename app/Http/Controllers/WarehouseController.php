@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Warehouse;
 use App\Product;
+use Illuminate\Support\Facades\DB;
+use PDF;
+use Illuminate\Support\Facades\datatables;
 class WarehouseController extends Controller
 {
     /**
@@ -17,16 +20,23 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        $warehouses = Warehouse::all();
+        /*$warehouses = Warehouse::all();
         $products = Product::all();
-        return view("warehouses.index",["warehouses" => $warehouses,"products" => $products]);
+        return datatables(DB::select("select w.id_warehouse,p.title,p.pricing,w.size,w.color, w.countw from warehouses w,products p where w.id_product=p.id"))->toJson();
+        $tabla = DB::select("select w.id_warehouse,p.title,p.pricing,w.size,w.color, w.countw from warehouses w,products p where w.id_product=p.id");*/ 
+        return view("warehouses.index");
     }
+    
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+     public function tabla()
+     {
+        return datatables(DB::select("select w.id_warehouse,p.title,p.pricing,w.size,w.color, w.countw from warehouses w,products p where w.id_product=p.id"))->make(true);
+     }
     public function create()
     {
         $warehouse = new Warehouse;
@@ -34,7 +44,20 @@ class WarehouseController extends Controller
         return view("warehouses.create",["warehouse" => $warehouse, "product" => $product]);
 
     }
+    public function PDF(Request $request)
+    {
+      $tabla = DB::select("select w.id_warehouse,p.title,p.pricing,w.size,w.color, w.countw from warehouses w,products p where w.id_product=p.id");
+        view()->share('tabla',$tabla);
+        if($request->has('download')){
 
+            $pdf = PDF::loadView('warehouses.pdfs');
+
+            return $pdf->download('inventario.pdf');
+
+        }
+
+       return view("warehouses.index");   
+    }
     /**
      * Store a newly created resource in storage.
      *
